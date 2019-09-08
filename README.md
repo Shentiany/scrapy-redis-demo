@@ -35,3 +35,5 @@ class MySpider(RedisSpider):
 ```bash
 redis-cli lpush myspider:start_urls http://google.com
 ```
+## ps
+master分支是scrapy的常规使用, dev分支在master分支的基础上添加了scrapy-redis组件
