@@ -1,12 +1,13 @@
 # -*- coding: utf-8 -*-
 import scrapy
 from items import DoubanItem
+from scrapy_redis.spiders import RedisSpider
 
 
-class MovieSpider(scrapy.Spider):
+class MovieSpider(RedisSpider):
     name = 'movie'
+    redis_key = 'movie:start_urls'
     allowed_domains = ['movie.douban.com']
-    start_urls = ['http://movie.douban.com/top250/']
 
     def parse(self, response):
         detail_urls = response.xpath('//div[@class="hd"]/a/@href').extract()
